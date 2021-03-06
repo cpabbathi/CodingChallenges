@@ -16,6 +16,25 @@ func isAnagram(first: String, second: String) -> Bool {
     first.makeDictionary() == second.makeDictionary()
 }
 
+func isAnagram2(first: String, second: String) -> Bool {
+    guard first.count == second.count else {
+        return false
+    }
+    
+    let first = first.lowercased()
+    let second = second.lowercased()
+    
+    var dictionaryFirst:[String.Element: Int] = [:]
+    var dictionarySecond:[String.Element: Int] = [:]
+    
+    for i in 0 ..< first.count {
+        dictionaryFirst[first[first.index(first.startIndex, offsetBy: i)]] = (dictionaryFirst[first[first.index(first.startIndex, offsetBy: i)]] ?? 0) + 1
+        dictionarySecond[second[second.index(second.startIndex, offsetBy: i)]] = (dictionarySecond[second[second.index(second.startIndex, offsetBy: i)]] ?? 0) + 1
+    }
+    
+    return dictionaryFirst == dictionarySecond
+}
+
 func isAnagramWithSort(first: String, second: String) -> Bool {
     first.lowercased().sorted() == second.lowercased().sorted()
 }
@@ -41,37 +60,37 @@ func isAnagramWithScanAndIncrementOrDecrement(first: String, second: String) -> 
 }
  
 var startTime = Date()
-isAnagramWithSort(first: "mothers", second: "thermos") == true
+isAnagram2(first: "mothers", second: "thermos") == true
 var endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "mothers", second: "thermo") == false
+isAnagram2(first: "mothers", second: "thermo") == false
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "mother", second: "thermos") == false
+isAnagram2(first: "mother", second: "thermos") == false
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "a", second: "") == false
+isAnagram2(first: "a", second: "") == false
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "Dat", second: "tad") == true
+isAnagram2(first: "Dat", second: "tad") == true
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "A", second: "AA") == false
+isAnagram2(first: "A", second: "AA") == false
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
 startTime = Date()
-isAnagramWithSort(first: "adkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfad", second: "adfasdgaaagasdasdfasioadadfadfasdfanjfadfadkfjaadfasdgaaagasdasdfasioadadfadfasdfanjfadfadkfjaeagasdeagasdadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfad") == true
+isAnagram2(first: "adkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfad", second: "adfasdgaaagasdasdfasioadadfadfasdfanjfadfadkfjaadfasdgaaagasdasdfasioadadfadfasdfanjfadfadkfjaeagasdeagasdadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfadadkfjaeioadfaagasdfasdgaaagasdasdfaadkfjaeioadfaagasdfasdgaaagasdasdfasdfasdfanjadfadfadsdfasdfanjadfadfad") == true
 endTime = Date()
 print(String(format: "%.6f", endTime.timeIntervalSince(startTime)))
 
