@@ -1,6 +1,7 @@
 import Foundation
 
-/* From an array of integers 'nums' and another integer 'target',
+/* 3/12/2021
+ From an array of integers 'nums' and another integer 'target',
  find out which two numbers in 'nums' will add up to 'target' and return their indices.
 For example: 'nums' = [5,1,8,11], 'target' = 13. Solution = [0,2]
 The order does not matter, the solution could be [2,0] as well.
