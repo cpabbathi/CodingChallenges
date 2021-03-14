@@ -1,5 +1,14 @@
 import Foundation
 
+/*
+ https://leetcode.com/explore/challenge/card/march-leetcoding-challenge-2021/589/week-2-march-8th-march-14th/3670/
+ Given an array of unique integers, arr, where each integer arr[i] is strictly greater than 1.
+
+ We make a binary tree using these integers, and each number may be used for any number of times. Each non-leaf node's value should be equal to the product of the values of its children.
+
+ Return the number of binary trees we can make. The answer may be too large so return the answer modulo 109 + 7.
+ */
+
 func numFactoredBinaryTrees(_ arr: [Int]) -> Int {
     let arr = arr.sorted()
     var binaryTreesForNumbers = [Int: Int]()
@@ -10,7 +19,7 @@ func numFactoredBinaryTrees(_ arr: [Int]) -> Int {
     for product in 0 ..< arr.count {
          for factor1 in 0 ..< product {
             for factor2 in factor1 ..< product {
-                if factor2 == factor1 + 1 && arr[factor1] * arr[factor2] > arr[product] {
+                if  arr[factor1] * arr[factor2] > arr[product] {
                     break
                 }
                 
