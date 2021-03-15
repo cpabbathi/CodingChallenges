@@ -10,68 +10,50 @@ import Foundation
  */
 
 class Solution {
+    var minCoinCountArray = [Int]()
+    var coins = [Int]()
+    
     func coinChange(_ coins: [Int], _ amount: Int) -> Int {
-        guard amount > 0 else { return 0 }
+        guard amount != 0 else { return 0 }
         
-        let coins: [Int] = coins.sorted().reversed()
-        var numberOfCoins = [Int: Int]()
-        var remainingAmount = amount
+        self.coins = coins
+        self.minCoinCountArray = Array(repeating: 0, count: amount)
         
-        coins.forEach {
-            numberOfCoins[$0] = 0
-        }
-        var coinIndex = 0
+        let returnVal = coinChangeTree(amount: amount)
+        return returnVal
+    }
+    
+    private func coinChangeTree(amount: Int) -> Int {
+        guard amount != 0 else { return 0 }
+        guard amount > 0 else { return -1 }
+        if minCoinCountArray[amount - 1] != 0 { return minCoinCountArray[amount - 1] }
         
-//        print(coins, remainingAmount)
-        while coinIndex < coins.count {
-//            print("Looping for: ", coinIndex)
-            let coinAmount = coins[coinIndex]
-            if coinAmount < remainingAmount {
-                numberOfCoins[coinAmount] = remainingAmount / coinAmount
-                remainingAmount = remainingAmount % coinAmount
-                
-                print(numberOfCoins, remainingAmount)
-                
-                if remainingAmount == 0 {
-                    return numberOfCoins.reduce(0) {
-                        $0 + $1.value
-                    }
-                }
-            }
-            
-            coinIndex += 1
-//            print("CoinIndex", coinIndex)
-            if coinIndex == coins.count {
-//                print("Reached the end")
-                remainingAmount += numberOfCoins[coinAmount]! * coinAmount
-                numberOfCoins[coinAmount] = 0
-                
-                var prevIndex = coinIndex - 2
-                while prevIndex >= 0 && numberOfCoins[coins[prevIndex]] == 0 {
-//                    print("PrevIndex = ", prevIndex)
-                    prevIndex -= 1
-                    
-                    if prevIndex == -1 {
-                        return -1
-                    }
-                }
-                
-                numberOfCoins[coins[prevIndex]]! -= 1
-                coinIndex = prevIndex + 1
-                remainingAmount += coins[prevIndex]
+        var minCoins = Int.max
+        for coin in coins {
+            let minCoinCountForSubTree = coinChangeTree(amount: amount - coin)
+            if minCoinCountForSubTree >= 0 && minCoinCountForSubTree < minCoins {
+                minCoins = minCoinCountForSubTree + 1
             }
         }
-        
-        return -1
+
+        if minCoins != Int.max {
+            minCoinCountArray[amount - 1] = minCoins
+            return minCoins
+        } else {
+            minCoinCountArray[amount - 1] = -1
+            return -1
+        }
     }
 }
 
 let solution = Solution()
-//solution.coinChange([1,2,5], 11) == 3
-//solution.coinChange([2], 3) == -1
-//solution.coinChange([1], 0) == 0
-//solution.coinChange([1], 1) == 1
-//solution.coinChange([1], 2) == 2
-//solution.coinChange([], 2) == -1
-//solution.coinChange([2], 1) == -1
-solution.coinChange([186,419,83,408], 6249)
+solution.coinChange([1,2,5], 11) == 3
+solution.coinChange([2,5], 5) == 1
+solution.coinChange([2,5], 4) == 2
+solution.coinChange([2], 3) == -1
+solution.coinChange([1], 0) == 0
+solution.coinChange([1], 1) == 1
+solution.coinChange([1], 2) == 2
+solution.coinChange([], 2) == -1
+solution.coinChange([2], 1) == -1
+solution.coinChange([186,419,83,408], 6249) == 20
