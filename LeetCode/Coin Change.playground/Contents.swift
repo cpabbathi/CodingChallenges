@@ -15,7 +15,6 @@ class Solution {
         
         let coins: [Int] = coins.sorted().reversed()
         var numberOfCoins = [Int: Int]()
-        var minimumCoins = 0
         var remainingAmount = amount
         
         coins.forEach {
@@ -34,12 +33,8 @@ class Solution {
                 print(numberOfCoins, remainingAmount)
                 
                 if remainingAmount == 0 {
-                    let currentCoinCount = numberOfCoins.reduce(0) {
+                    return numberOfCoins.reduce(0) {
                         $0 + $1.value
-                    }
-                    
-                    if currentCoinCount < minimumCoins {
-                        minimumCoins = currentCoinCount
                     }
                 }
             }
@@ -57,7 +52,7 @@ class Solution {
                     prevIndex -= 1
                     
                     if prevIndex == -1 {
-                        return minimumCoins > 0 ? minimumCoins : -1
+                        return -1
                     }
                 }
                 
