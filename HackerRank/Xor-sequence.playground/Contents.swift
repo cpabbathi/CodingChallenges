@@ -10,7 +10,7 @@ import Foundation
  the answer is G(R) ^ G(L-1). search the patern for G(X).
  
  */
-func xorSequence(number: Int) -> Int {
+func xorSequenceIndividual(number: Int) -> Int {
     let remainder = number % 8
     
     switch remainder {
@@ -28,7 +28,7 @@ func xorSequence(number: Int) -> Int {
 }
 
 func xorSequence(l: Int, r: Int) -> Int {
-    return xorSequence(number: l - 1) ^ xorSequence(number: r)
+    return xorSequenceIndividual(number: l - 1) ^ xorSequenceIndividual(number: r)
 }
 
 xorSequence(l: 2, r: 4) == 7
