@@ -46,14 +46,47 @@ class Solution {
     }
 }
 
-let solution = Solution()
-solution.coinChange([1,2,5], 11) == 3
-solution.coinChange([2,5], 5) == 1
-solution.coinChange([2,5], 4) == 2
-solution.coinChange([2], 3) == -1
-solution.coinChange([1], 0) == 0
-solution.coinChange([1], 1) == 1
-solution.coinChange([1], 2) == 2
-solution.coinChange([], 2) == -1
-solution.coinChange([2], 1) == -1
-solution.coinChange([186,419,83,408], 6249) == 20
+//let solution = Solution()
+//solution.coinChange([1,2,5], 11) == 3
+//solution.coinChange([2,5], 5) == 1
+//solution.coinChange([2,5], 4) == 2
+//solution.coinChange([2], 3) == -1
+//solution.coinChange([1], 0) == 0
+//solution.coinChange([1], 1) == 1
+//solution.coinChange([1], 2) == 2
+//solution.coinChange([], 2) == -1
+//solution.coinChange([2], 1) == -1
+//solution.coinChange([186,419,83,408], 6249) == 20
+
+
+public class Solution2 {
+    public func coinChange(coins: [Int], amount: Int) -> Int {
+        guard amount > 0 else { return 0 }
+        var dp = Array(repeating: amount + 1, count: amount + 1)
+        
+        dp[0] = 0
+        print(coins, dp)
+        for i in 1 ... amount {
+            for j in 0 ..< coins.count {
+                if coins[j] <= i {
+                    dp[i] = min(dp[i], dp[i - coins[j]] + 1)
+                    print("i =", i, " j =", j, "dp[prev] = ",  dp[i - coins[j]], "dp[",i,"] =", dp[i], "dp =", dp)
+                }
+            }
+        }
+        
+        return dp[amount] > amount ? -1 : dp[amount]
+    }
+}
+
+let solution2 = Solution2()
+solution2.coinChange(coins: [1,2,5], amount: 11) == 3
+//solution2.coinChange(coins: [2,5], amount: 5) == 1
+//solution2.coinChange(coins: [2,5], amount: 4) == 2
+//solution2.coinChange(coins: [2], amount: 3) == -1
+//solution2.coinChange(coins: [1], amount: 0) == 0
+//solution2.coinChange(coins: [1], amount: 1) == 1
+//solution2.coinChange(coins: [1], amount: 2) == 2
+//solution2.coinChange(coins: [], amount: 2) == -1
+//solution2.coinChange(coins: [2], amount: 1) == -1
+//solution2.coinChange(coins: [186,419,83,408], amount: 6249) == 20
