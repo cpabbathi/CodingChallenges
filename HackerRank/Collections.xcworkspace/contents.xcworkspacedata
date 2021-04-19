@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:"
+      name = "">
+      <FileRef
+         location = "group:Counter game.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Intro to Conditional Statements.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Let&apos;s Review.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Time Conversion.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Linked List.playground">
+      </FileRef>
+      <FileRef
+         location = "group:2D Arrays.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Recursive 3.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Flipping bits.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Dictionaries and Maps.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Simple Array Sum.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Insert a node at a specific position in a linked list.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Reverse a doubly linked list.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Inheritance.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Arrays.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Hamming Distance  .playground">
+      </FileRef>
+      <FileRef
+         location = "group:HammingDistance Failed test case input11.webarchive">
+      </FileRef>
+      <FileRef
+         location = "group:Lonely Integer.playground">
+      </FileRef>
+      <FileRef
+         location = "group:test.xcworkspace">
+      </FileRef>
+      <FileRef
+         location = "group:Class vs. Instance.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Plus Minus.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Compare the Triplets.playground">
+      </FileRef>
+      <FileRef
+         location = "group:xorSequenceFailedTestCase.webarchive">
+      </FileRef>
+      <FileRef
+         location = "group:Mini-Max Sum.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Collections.xcworkspace">
+      </FileRef>
+      <FileRef
+         location = "group:Xor-sequence.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Birthday Cake Candles.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Recursion- Davis&apos; Staircase.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Binary Numbers.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Loops.playground">
+      </FileRef>
+      <FileRef
+         location = "group:test.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Print in Reverse.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Delete a Node.playground">
+      </FileRef>
+      <Group
+         location = "group:SceneAndViewControllerLifeCycle"
+         name = "SceneAndViewControllerLifeCycle">
+         <FileRef
+            location = "group:SceneAndViewControllerLifeCycle.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:SceneAndViewControllerLifeCycle"
+            name = "SceneAndViewControllerLifeCycle">
+            <FileRef
+               location = "group:ViewController.swift">
+            </FileRef>
+            <Group
+               location = "group:Assets.xcassets"
+               name = "Assets.xcassets">
+               <Group
+                  location = "group:AppIcon.appiconset"
+                  name = "AppIcon.appiconset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:AccentColor.colorset"
+                  name = "AccentColor.colorset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Base.lproj"
+               name = "Base.lproj">
+               <FileRef
+                  location = "group:LaunchScreen.storyboard">
+               </FileRef>
+               <FileRef
+                  location = "group:Main.storyboard">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:AppDelegate.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:SceneDelegate.swift">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:Fibonacci.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Maximizing XOR.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Operators.playground">
+      </FileRef>
+      <FileRef
+         location = "group:A Very Big Sum.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Staircase.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Scope.playground">
+      </FileRef>
+   </Group>
+</Workspace>

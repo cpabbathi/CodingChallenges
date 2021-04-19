@@ -1,5 +1,6 @@
 import Foundation
 
+
 public class ListNode {
     public var val: Int
     public var next: ListNode?
@@ -107,21 +108,45 @@ public class LinkedList: CustomStringConvertible {
 
 class Solution {
     func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+        var arrayA: [ListNode] = []
+        var arrayB: [ListNode] = []
+        
+        if headA == nil || headB == nil {
+            return nil
+        }
+        
         var nodeA = headA
         var nodeB = headB
         
-        while nodeA != nil {
-            nodeB = headB
-            while nodeB != nil {
-                if nodeA === nodeB {
-                    return nodeA
-                }
+        while nodeA != nil || nodeB != nil {
+            if nodeA != nil {
+                arrayA.append(nodeA!)
+                nodeA = nodeA!.next
+            }
+            
+            if nodeB != nil {
+                arrayB.append(nodeB!)
                 nodeB = nodeB!.next
             }
-            nodeA = nodeA!.next
         }
         
-        return nil
+        var tailA = arrayA.popLast()
+        var tailB = arrayB.popLast()
+        
+        while arrayA.count > 0 && arrayB.count > 0 {
+            tailA = arrayA.popLast()
+            tailB = arrayB.popLast()
+            
+            if tailA === tailB {
+                break
+            }
+        }
+        
+        if tailA!.next != nil {
+            return tailA!.next
+        } else {
+            return nil
+        }
     }
 }
 
@@ -143,4 +168,8 @@ var intersectionNode = solution.getIntersectionNode(listA.head, listB.head)
 
 listA = LinkedList(arr: [1])
 listB = LinkedList(arr: [1])
+intersectionNode = solution.getIntersectionNode(listA.head, listB.head)
+
+listA = LinkedList(arr: [1])
+listB = listA
 intersectionNode = solution.getIntersectionNode(listA.head, listB.head)

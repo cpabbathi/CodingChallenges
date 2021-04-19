@@ -7,10 +7,13 @@ class Solution {
         array.append(contentsOf: matrix[0])
         
         for row in 1 ..< matrix.count {
+            var prevIndex = 0
             for column in 0 ..< matrix[row].count {
-                let index = insert(element: matrix[row][column])
+                let index = insert(element: matrix[row][column], from: prevIndex)
                 if column == 0 && index >= k {
                     return array[k-1]
+                } else {
+                    prevIndex = index
                 }
             }
         }
@@ -18,7 +21,7 @@ class Solution {
         return array[k-1]
     }
     
-    private func insert(element: Int) -> Int {
+    private func insert(element: Int, from: Int) -> Int {
         if array.count == 0 || element < array[0] {
             array.insert(element, at: 0)
             return 0
@@ -26,7 +29,7 @@ class Solution {
             array.append(element)
             return array.count - 1
         } else {
-            var from = 0
+            var from = from
             var to = array.count - 1
             
             while from <= to {
@@ -47,4 +50,4 @@ class Solution {
     }
 }
 
-Solution().kthSmallest([[1,5,9,30],[10,11,13,31],[12,13,15,32],[14,15,16,34]], 16)
+Solution().kthSmallest([[1,5,9,30],[10,11,13,31],[12,13,15,32],[14,15,16,34]], 8)
